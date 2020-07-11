@@ -4,30 +4,11 @@ import { ListItem, Card } from 'react-native-elements';
 
 class Contact extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        };
-    }
-
     static navigationOptions = {
         title: 'Contact Us'
     };
 
     render() {
-        const { navigate } = this.props.navigation;
-        const renderContactItem = ({item}) => {
-            return (
-                <ListItem
-                    title={item.name}
-                    subtitle={item.description}
-                    onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })}
-                    leftAvatar={{ source: require('./images/react-lake.jpg')}}
-                />
-            );
-        };
-
         return (
             <ScrollView>
                     <Card
