@@ -3,6 +3,7 @@ import { ScrollView, Text, FlatList } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
+import Loading from './LoadingComponent';
 
 const mapStateToProps = state => {
     return {
@@ -43,6 +44,29 @@ class About extends Component {
                 />
             );
         };
+// this checks to see if partners is still loading. If so, display the loading circle from LoadingComponent
+        if(this.props.partners.isLoading){
+            return(
+                <ScrollView>
+                    <Mission/>
+                    <Card title="Community Partners">
+                        <Loading/>
+                    </Card>
+                </ScrollView>
+            );
+        }
+// if there is an error, show the error :P
+        if (this.props.partners.errMess) {
+            return (
+                <ScrollView>
+                    <Mission/>
+                    <Card title="Community Partners">
+                        <Text>{this.props.partners.errMess}</Text>
+                    </Card>
+                </ScrollView>
+            );
+        }
+// what should show after loading :D
         return (
             <ScrollView>
                     <Mission/>
