@@ -326,3 +326,7 @@ const styles = StyleSheet.create({
 });
 
 export default connect(null, mapDispatchToProps)(Main);
+
+
+//measureInWindow Fix 
+//this.view.measureInWindow((winX, winY, winWidth, winHeight) => {
